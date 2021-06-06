@@ -4,6 +4,7 @@ django-admin==2.0.1
 django-excel-base==1.0.4
 django-excel-response2==3.0.2
 django-filter==2.4.0
+django-heroku==0.3.1
 django-six==1.0.4
 django-widget-tweaks==1.4.8
 greenlet==1.1.0
