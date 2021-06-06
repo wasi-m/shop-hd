@@ -46,6 +46,12 @@ $ python manage.py runserver
 
 **NOTE\*\* All loaded users have *password* as password**
 
+To Demo Product Recommendation
+--------------------------------------------
+1. Login with username as _Krzysztof Gould_ and password as _password_
+2. Click on _Product Recommendation_ situated on top right corner
+3. Top 10 Product Recommendations are shown
+
 App Structure
 --------------------------------------------
 - accounts module to handle user signin/signup
