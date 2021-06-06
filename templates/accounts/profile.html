@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% load accounts products core %}
+
+{% block content %}
+
+    <div class="card">
+        <div class="card-header">
+            <h1>Profile</h1> 
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">{{ accounts.username }}</h2>
+          <h4 class="card-text">following : {{ accounts.following.count }}</h4>
+          <h4 class="card-text">followers : {{ accounts.followers.count }}</h4>
+            {% if user.is_authenticated %}
+                {% if user in accounts.following.all %}
+                    <a href="{% url 'accounts:follow' accounts.username  %}" class="btn btn-primary">Unfollow</a>
+                {% else %}
+                    <a  href="{% url 'accounts:follow' accounts.username  %}" class="btn btn-primary"> Follow </a>
+                {% endif %}
+            {% else %}
+                <p class="text-muted"> please, login to follow </p>
+            {% endif %}
+        </div>
+      </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% load accounts products core %}
+
+{% block content %}
+    <h1>Accounts</h1>
+
+    <div class="button-group mt-2 mb-5">
+        <a class="btn btn-success" href="{% url 'accounts:register' %}">
+            <i class="fa fa-file-alt"></i> Create new
+        </a>
+    </div>
+    {% include "pagination.html" with page=page_obj %}
+
+    <table class="table my-2">
+        <thead class="thead-dark">
+            <tr>
+                <th>Username</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for user in users %}
+                <tr>
+                    <td>
+                        <a href="{% url 'accounts:profile' user.username %}">{{ user.username }}</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url_referred 'accounts:profile' user.username %}" data-toggle="tooltip" title="profile">
+                            <i class="fas fa-external-link-alt">  Profile </i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% include "pagination.html" with page=page_obj %}
+{% endblock %}
