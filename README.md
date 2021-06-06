@@ -44,7 +44,8 @@ $ python manage.py runserver
 ```
 7. Open http://127.0.0.1:8000 in browser
 
-**NOTE\*\* All loaded users have *password* as password**
+**NOTE\*\* All Default loaded users will have *password* as password and will be non supersuer, 
+to perform CRUD operation on product need to register new user with admin rights **
 
 To Demo Product Recommendation
 --------------------------------------------
