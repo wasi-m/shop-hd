@@ -20,6 +20,7 @@ class Command(BaseCommand):
                 'productStock':'stock','productPrice':'price','salePrice':'saleprice'}
             all_products_df = all_products_df.rename(columns = columns)
             del all_products_df['productId']
+            print(all_products_df)
             engine = create_engine(f"sqlite:///{str(DATABASES['default']['NAME'])}", echo=False)
             with engine.begin() as connection:
                 all_products_df.to_sql('products_product', con=connection, if_exists='append', index=False)

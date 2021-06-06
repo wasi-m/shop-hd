@@ -21,6 +21,7 @@ class Command(BaseCommand):
             all_users_df['last_login'], all_users_df['date_joined'] = datetime.now(), datetime.now()
             all_users_df['password'] = make_password('password')
             del all_users_df['id']
+            print(all_users_df)
             engine = create_engine(f"sqlite:///{str(DATABASES['default']['NAME'])}", echo=False)
             with engine.begin() as connection:
                 all_users_df.to_sql('accounts_user', con=connection, if_exists='append', index=False)

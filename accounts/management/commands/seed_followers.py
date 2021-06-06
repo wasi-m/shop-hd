@@ -22,6 +22,7 @@ class Command(BaseCommand):
                 temp_followers_df['to_user_id'] = to_user_id
                 temp_followers_df['from_user_id'] = user[1]
                 followers_df = followers_df.append(temp_followers_df)
+            print(followers_df)
             engine = create_engine(f"sqlite:///{str(DATABASES['default']['NAME'])}", echo=False)
             with engine.begin() as connection:
                 followers_df.to_sql('accounts_user_following', con=connection, if_exists='append', index=False)
